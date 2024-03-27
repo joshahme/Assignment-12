@@ -45,3 +45,7 @@ ggplot(data = average_sales, aes(x = Month, y = Average_Sales, group = 1)) +
          y = "Average Sales") +
     theme_minimal()
 link-  file:///C:/Users/Joshah/OneDrive/Documents/Joshah/Sales_Analysis.html
+Explanation
+create R markdown file and name it as Sales_Analysis. Load needed libraries and data.
+Then create a fictional dataset, and explore the dataset
+Total sales is visualized using a barplot, and average sales per month is visualized using a line plot
