@@ -44,3 +44,4 @@ ggplot(data = average_sales, aes(x = Month, y = Average_Sales, group = 1)) +
          x = "Month",
          y = "Average Sales") +
     theme_minimal()
+link-  file:///C:/Users/Joshah/OneDrive/Documents/Joshah/Sales_Analysis.html
