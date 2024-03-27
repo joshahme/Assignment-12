@@ -1,2 +1,46 @@
 # Assignment-12
 R markdown
+## Introduction
+In this analysis, we'll explore a fictional sales dataset using R. We'll load the necessary libraries, examine the dataset, calculate total sales for each product, and visualize the results using bar plots. Additionally, we'll calculate average sales per month and visualize them using line plots.
+
+## Load Libraries and Data
+
+```R
+library(dplyr)
+library(ggplot2)
+
+# Create a fictional dataset
+sales_data <- data.frame(
+    Product = c("A", "B", "C", "A", "B", "C", "A", "B", "C"),
+    Month = rep(c("Jan", "Feb", "Mar"), times = 3),
+    Sales = c(100, 150, 80, 120, 180, 90, 110, 160, 85)
+)
+
+# Explore the dataset
+head(sales_data)
+summary(sales_data)
+# Calculate total sales for each product
+total_sales <- sales_data %>%
+    group_by(Product) %>%
+    summarise(Total_Sales = sum(Sales))
+
+# Visualize total sales using a bar plot
+ggplot(data = total_sales, aes(x = Product, y = Total_Sales, fill = Product)) +
+    geom_bar(stat = "identity") +
+    labs(title = "Total Sales by Product",
+         x = "Product",
+         y = "Total Sales") +
+    theme_minimal()
+# Calculate average sales per month
+average_sales <- sales_data %>%
+    group_by(Month) %>%
+    summarise(Average_Sales = mean(Sales))
+
+# Visualize average sales per month using a line plot
+ggplot(data = average_sales, aes(x = Month, y = Average_Sales, group = 1)) +
+    geom_line(color = "blue") +
+    geom_point(color = "blue") +
+    labs(title = "Average Sales per Month",
+         x = "Month",
+         y = "Average Sales") +
+    theme_minimal()
